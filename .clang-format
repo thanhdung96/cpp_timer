@@ -1,0 +1,13 @@
+BasedOnStyle: Google
+IndentWidth: 4
+ColumnLimit: 80
+DerivePointerAlignment: false
+PointerAlignment: Left
+AllowShortFunctionsOnASingleLine: Inline
+SpacesInAngles: false
+SpaceAfterCStyleCast: false
+BreakBeforeBraces: Attach
+Standard: Cpp11
+SortIncludes: true
+IncludeBlocks: Regroup
+Cpp11BracedListStyle: true

@@ -1,0 +1,20 @@
+flags = -Wall -fexceptions -O2 -std=c++23 -m64 -Iinclude
+objectDir = obj
+
+rule compile
+  command = clang++ $flags -c $in -o $out
+  description = compile $in
+
+rule link
+  command = clang++ -o $objectDir/$out $in
+  description = link $objectDir/$out
+
+rule run_format
+  command = find . -iname "*.cpp" -o -iname "*.h" | xargs clang-format -i
+
+build $objectDir/main.o: compile main.cpp
+build timer: link $objectDir/main.o
+
+build format: run_format
+default timer 
+

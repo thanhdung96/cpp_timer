@@ -1,10 +1,12 @@
 #include <chrono>
 #include <iomanip>
 #include <iostream>
+#include <string>
 #include <thread>
 
 int main() {
     int hours = 0, minutes = 0, seconds = 0;
+    std::string message;
 
     std::cout << "Enter hours: ";
     std::cin >> hours;
@@ -12,6 +14,10 @@ int main() {
     std::cin >> minutes;
     std::cout << "Enter seconds: ";
     std::cin >> seconds;
+    std::cin.ignore();  // Clear newline from input buffer
+
+    std::cout << "Enter message to display when time is up: ";
+    std::getline(std::cin, message);
 
     if (hours < 0) hours = 0;
     if (minutes < 0) minutes = 0;
@@ -42,6 +48,9 @@ int main() {
     }
 
     std::cout << "\r00:00:00 remaining " << std::endl;
+
+    // Display custom message
+    std::cout << message << std::endl;
 
     // Ring the bell 3 times
     for (int i = 0; i < 3; ++i) {
